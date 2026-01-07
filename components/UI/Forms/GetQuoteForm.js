@@ -147,27 +147,19 @@ export default function GetQuoteForm({ className, formName = "Get a Quote Form",
                     setIsSuccess(true);
                     setNewSubmission(false);
                     setError(false);
-                    
+
                          if (typeof window !== "undefined" && window.dataLayer) {
-            window.dataLayer.push({
-              event: "quote_form_submission",
-              formName: "Moving Quote",
-              formData: {
-                firstName: firstName,
-                email: formData.email,
-                phone: formData.phone,
-                street: `${googleAdsAddress.pickUpAddress.streetNumber} ${googleAdsAddress.pickUpAddress.streetName}`,
-                city: googleAdsAddress.pickUpAddress.city,
-                region: googleAdsAddress.pickUpAddress.region,
-                postCode: googleAdsAddress.pickUpAddress.postalCode,
-                gclid: clickIds.gclid,
-                gbraid: clickIds.gbraid,
-                wbraid: clickIds.wbraid,
-                fbclid: clickIds.fbclid,
-                fbc: clickIds.fbc,
-                fbp: clickIds.fbp,
-              },
-            });
+           window.dataLayer.push({
+  event: "quote_form_submission",
+  formName: "Moving Quote",
+  formData: {
+    firstName: formData.firstname,
+    email: formData.email,
+    phone: formData.phone,
+   
+  },
+});
+
           }
                     router.push('/form-submitted/thank-you');
                 }
