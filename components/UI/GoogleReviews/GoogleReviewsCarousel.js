@@ -79,7 +79,7 @@ export default function GoogleReviewsCarousel({data}) {
   );
 
   return (
-    <Section>
+    <Section id="reviews">
       <Container maxWidth="xl">
       <div className="title-row">
           <Typography
