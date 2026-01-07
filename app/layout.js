@@ -20,11 +20,11 @@ const work_sans = Work_Sans({
 
 
 export default function RootLayout({ children }) {
-  const GTM_ID = 'GTM-TSGS24XH'
+  const GTM_ID = 'GTM-MMSKB7NS'
 
   return (
     <html lang="en" className={`${work_sans.variable}`}>
- <Script
+    <Script
           id="gtm-script"
           strategy="lazyOnload" // or "lazyOnload" if you prefer
           dangerouslySetInnerHTML={{
