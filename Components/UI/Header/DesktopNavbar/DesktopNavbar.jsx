@@ -153,6 +153,7 @@ function DesktopNavbar(props) {
           alt="Logo"
           style={{ cursor: "pointer" }}
           quality={100}
+          priority
           />
           </Link>
 

@@ -26,7 +26,6 @@ export default function LandingPageHeroSection({
   aboveTitleUsp,
   trustSnippet
 }) {
-  console.log("title" + trustSnippet.title)
   return (
     <section className={`${styles.section}`}>
       <div className={`${styles.container}`}>

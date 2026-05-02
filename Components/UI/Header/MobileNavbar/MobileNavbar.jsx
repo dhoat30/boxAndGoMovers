@@ -174,6 +174,7 @@ export default function MobileNavbar(props) {
                     alt="Logo"
                     style={{ cursor: "pointer" }}
                     quality={100}
+                    priority
                   />
                 </Link>
               </div>

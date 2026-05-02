@@ -35,7 +35,6 @@ export default function Layout({
   serviceJobs,
 }) {
   if (!sections) return null;
-  console.log(sections[2]);
   const sectionsJSX = sections.map((section, index) => {
 
     // if (4 === 4) {
