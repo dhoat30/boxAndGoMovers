@@ -15,7 +15,6 @@ import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 import dayjs from "dayjs";
 import { useClickIds } from "@/hooks/useClickIds";
-import Script from "next/script";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 const STEPS = [
@@ -353,15 +352,6 @@ export default function MultipartForm({
       } else if (isAddressField(field.id)) {
         return (
           <React.Fragment key={field.id}>
-            <Script
-              id="google-maps"
-              strategy="afterInteractive"
-              src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&v=weekly&libraries=places`}
-              onLoad={() => {
-                // signal to the app that maps is ready
-                window.dispatchEvent(new Event("gmaps-ready"));
-              }}
-            />
             <GoogleAutocomplete
               className="mt-16"
               label={field.label}

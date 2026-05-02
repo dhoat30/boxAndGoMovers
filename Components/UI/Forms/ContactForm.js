@@ -10,7 +10,6 @@ import Alert from "@mui/material/Alert";
 import Container from "@mui/material/Container";
 import { useRouter } from "next/navigation";
 import Typography from "@mui/material/Typography";
-import GoogleMapsLoader from "@/Components/GoogleMaps/GoogleMapsLoader";
 import GoogleAutocomplete from "@/Components/GoogleMaps/GoogleAutoComplete";
 import styles from "./FormStyle.module.scss";
 export default function ContactForm({
@@ -37,7 +36,6 @@ export default function ContactForm({
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [newSubmission, setNewSubmission] = useState(false);
-  const [mapsLoaded, setMapsLoaded] = useState(false);
 
   const handleChange = (id, value, isSelectMultiple) => {
     let newValue = value.target ? value.target.value : value;
@@ -175,10 +173,6 @@ export default function ContactForm({
     return [];
   };
 
-  // Initialize Google Maps script
-  const handleLoad = () => {
-    setMapsLoaded(true);
-  };
   // is address field
   const isAddressField = (id) => {
     return ["address", "pickUpAddress", "dropOffAddress"].includes(id);
@@ -211,32 +205,29 @@ export default function ContactForm({
     } else if (isAddressField(field.id)) {
       return (
         <React.Fragment key={field.id}>
-          {!mapsLoaded && <GoogleMapsLoader onLoad={handleLoad} />}
-          {mapsLoaded && (
-            <GoogleAutocomplete
-              className="mt-16"
-              label={field.label}
-              value={formData[field.id]} // pickUpAddress / dropOffAddress / address
-              onChange={(value) => handleChange(field.id, value, false)}
-              onSelect={(selectedAddress) => {
-                // When user selects an address from suggestions
-                setFormData((prevData) => ({
-                  ...prevData,
-                  [field.id]: selectedAddress,
-                }));
-                // Reset errors if any
-                if (errors[field.id]) {
-                  setErrors({ ...errors, [field.id]: false });
-                }
-              }}
-              required={field.required}
-              autoComplete={field.autoComplete}
-              error={errors[field.id]}
-              helperText={
-                errors[field.id] ? "Please enter a valid address" : ""
+          <GoogleAutocomplete
+            className="mt-16"
+            label={field.label}
+            value={formData[field.id]} // pickUpAddress / dropOffAddress / address
+            onChange={(value) => handleChange(field.id, value, false)}
+            onSelect={(selectedAddress) => {
+              // When user selects an address from suggestions
+              setFormData((prevData) => ({
+                ...prevData,
+                [field.id]: selectedAddress.formattedAddress,
+              }));
+              // Reset errors if any
+              if (errors[field.id]) {
+                setErrors({ ...errors, [field.id]: false });
               }
-            />
-          )}
+            }}
+            required={field.required}
+            autoComplete={field.autoComplete}
+            error={errors[field.id]}
+            helperText={
+              errors[field.id] ? "Please enter a valid address" : ""
+            }
+          />
         </React.Fragment>
       );
     } else {
