@@ -65,7 +65,7 @@ function GoogleReviewSnippet({
           {reviewTitle}
         </Typography>
         <div className={`${styles.ratingWrapper} flex align-center gap-4`}>
-          <Image src="/google-logo.png" alt="Google" width={14} height={14} />
+          <Image src="/google-logo.png" alt="Google" width={14} height={14} priority/>
           <div className={`${styles.starsWrapper} flex align-center`}>
             <StarIcon sx={{ color: "#FABB05", fontSize: "1.1rem" }} />
             <StarIcon sx={{ color: "#FABB05", fontSize: "1.1rem" }} />

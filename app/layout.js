@@ -38,11 +38,11 @@ export default function RootLayout({ children }) {
             `
           }}
         />
-         <Script
+         {/* <Script
           id="hs-script-loader"
           strategy="afterInteractive"
           src={`//js-na2.hs-scripts.com/${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}.js`}
-        />
+        /> */}
               <body >
                   {/* 3) GTM noscript fallback */}
           <noscript>

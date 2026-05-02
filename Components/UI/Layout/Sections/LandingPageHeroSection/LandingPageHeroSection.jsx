@@ -61,7 +61,7 @@ export default function LandingPageHeroSection({
             <GoogleReviewSnippet reviewerPics={reviewerPics} reviewTitle={reviewTitle} leftAligned={true} className="mb-0" />
             {/* trust snippet */}
             <div className={`${styles.trustSnippetWrapper} flex gap-8 align-center`}>
-              <Image src={trustSnippet.icon.url} alt={trustSnippet.icon.alt} width={34} height={34} />
+              <Image src={trustSnippet.icon.url} alt={trustSnippet.icon.alt} width={34} height={34} priority/>
               <div className={`${styles.titleWrapper} `}>
                 <Typography variant="subtitle2" component="div" className={`${styles.trustSnippetTitle} `} >
                   {trustSnippet.title}

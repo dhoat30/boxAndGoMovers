@@ -1,7 +1,7 @@
 export const revalidate = 2592000; // applies to both page and metadata
 
 import Header from '@/Components/UI/Header/Header'
-import {getSinglePostData, getGoogleReviews} from '@/utils/fetchData'
+import {getSinglePostData} from '@/utils/fetchData'
 import Footer from '@/Components/UI/Footer/Footer'
 import Layout from '@/Components/UI/Layout/Layout'
 import GoogleReviewsCarousel from '@/Components/UI/GoogleReviews/GoogleReviewsCarousel'
@@ -50,7 +50,6 @@ export async function generateMetadata(props, parent) {
 
   export default async function Home() {
     const data = await getSinglePostData( 'box-and-go-moving', '/wp-json/wp/v2/moving-company')
-    const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
     const sections = data[0]?.acf?.layout
     return (
