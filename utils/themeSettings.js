@@ -91,6 +91,11 @@ export const lightTheme = createTheme({
           border: "1px solid var(--light-primary)",
           color: "var(--light-primary)",
         },
+             text: {
+          color: "var(--light-primary)",
+          display: "inline-block",
+          padding: "12px 0",
+        },
       },
     },
   },
