@@ -1,11 +1,11 @@
 export const revalidate = 2592000; // applies to both page and metadata
 
-import Header from '@/components/UI/Header/Header'
-import GetQuotePage from '@/components/Pages/GetQuotePage/GetQuotePage'
+import Header from '@/Components/UI/Header/Header'
 import {getSinglePostData, getGoogleReviews} from '@/utils/fetchData'
-import Footer from '@/components/UI/Footer/Footer'
-import Layout from '@/components/UI/Layout/Layout'
-import GoogleReviewsCarousel from '@/components/UI/GoogleReviews/GoogleReviewsCarousel'
+import Footer from '@/Components/UI/Footer/Footer'
+import Layout from '@/Components/UI/Layout/Layout'
+import GoogleReviewsCarousel from '@/Components/UI/GoogleReviews/GoogleReviewsCarousel'
+import reviewsData from "@/data/google-reviews.json";
 
 
 
@@ -48,7 +48,7 @@ export async function generateMetadata(props, parent) {
     }
 }
 
-  export default async function PrimeCleanExperts() {
+  export default async function Home() {
     const data = await getSinglePostData( 'box-and-go-moving', '/wp-json/wp/v2/moving-company')
     const googleReviews = await getGoogleReviews()
     if(!data) return {notFound: true}
@@ -58,11 +58,11 @@ export async function generateMetadata(props, parent) {
             <Header />
             <main>
 
-            <Layout sections={sections} />
+            <Layout sections={sections}  googleReviewsData={reviewsData}
+/>
                 {/* <Layout sections={postData[0]?.acf?.sections} /> */}
                 {/* <USP showTitle={true} statsArray={options.stats.items} cards={options.usp.items} title={options.usp.section_title} description={options.usp.section_description} /> */}
             
-                <GoogleReviewsCarousel data={googleReviews} className="mt-24"/>
 
             </main>
             <Footer showFooterCta={true} footerCtaData={{title: "Book Your Move with Confidence", description: "Don’t risk delays, damage, or surprise costs on moving day. Choose a professional moving team that shows up on time and does the job right.", cta_link: {url: "/", title: "GET A QUOTE"}}  }/>

@@ -1,5 +1,5 @@
-import Header from '@/components/UI/Header/Header';
-import ThankYou from '@/components/UI/ThankYou/ThankYou';
+import Header from '@/Components/UI/Header/Header';
+import ThankYou from '@/Components/UI/ThankYou/ThankYou';
 
 export const metadata = {
     metadataBase: new URL('https://bestnzmovers.co.nz'),

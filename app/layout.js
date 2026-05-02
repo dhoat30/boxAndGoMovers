@@ -1,12 +1,12 @@
 //import css file 
-import './globals.css'
+import './globals.scss'
 import './tokens.css'
 // Import slick css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Work_Sans } from 'next/font/google'
 
-import ClientProvider from '@/components/Providers/ClientProvider';
+import ClientProvider from '@/Providers/ClientProvider';
 import Script from 'next/script'
 
 // fonts settings

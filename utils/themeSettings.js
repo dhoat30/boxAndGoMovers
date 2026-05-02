@@ -53,11 +53,15 @@ export const lightTheme = createTheme({
     },
     h5: {
       fontWeight: 600,
-      letterSpacing: "0.02rem",
       color: "var(--light-on-surface)",
+         "@media (max-width:900px)": {
+        fontSize: "1.2rem",
+        lineHeight: "140%",
+      },
     },
 
     h6: {
+      fontWeight: 400,
       color: "var(--light-on-surface)",
     },
     body1: {
@@ -73,10 +77,15 @@ export const lightTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: "50px",
+ borderRadius: "50px",
           color: "var(--light-on-primary)",
           paddingRight: "32px",
           paddingLeft: "32px",
+          fontSize: "1.1rem",
+          textTransform: "inherit",
+          boxShadow: "none",
+          fontWeight: "500",
+
         },
         outlined: {
           border: "1px solid var(--light-primary)",

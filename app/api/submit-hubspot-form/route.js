@@ -5,9 +5,21 @@ const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
 export async function POST(req, res) {
     const { hubspotFormObject, hubspotFormID, portalID } = await req.json();
 
+    if (!HUBSPOT_API_KEY || !portalID || !hubspotFormID) {
+        return NextResponse.json({
+            message: "Missing HubSpot configuration",
+            success: false,
+            missing: {
+                HUBSPOT_API_KEY: !HUBSPOT_API_KEY,
+                portalID: !portalID,
+                hubspotFormID: !hubspotFormID,
+            }
+        }, { status: 400 });
+    }
+
     var payload = JSON.stringify({
         "submittedAt": new Date().getTime(),
-        "fields": hubspotFormObject,
+        "fields": (hubspotFormObject || []).filter((field) => field?.name && field.value !== undefined && field.value !== null),
 
         "legalConsentOptions": { // Include this object when GDPR options are enabled
             "consent": {
@@ -37,15 +49,25 @@ export async function POST(req, res) {
 
     try {
         // submit form
-        let response = await fetch(`https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalID}/${hubspotFormID}`, postOptions)
-       
-        response = await response.json();
+        const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/secure/submit/${portalID}/${hubspotFormID}`, postOptions)
+        const data = await response.json().catch(() => ({}));
 
-        return NextResponse.json({ message: "This Worked", success: true, data: response });
+        if (!response.ok) {
+            return NextResponse.json({
+                message: "HubSpot submission failed",
+                success: false,
+                status: response.status,
+                data,
+            }, { status: response.status });
+        }
+
+        return NextResponse.json({ message: "This Worked", success: true, data });
     } catch (error) {
         console.error(error);
-        // const err = await error.json();
-        return NextResponse.json({ message: error, success: false });
+        return NextResponse.json({
+            message: error instanceof Error ? error.message : "Unknown HubSpot route error",
+            success: false
+        }, { status: 500 });
         // res.status(500).send('Error sending email');
 
     }

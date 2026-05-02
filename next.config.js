@@ -1,5 +1,3 @@
-const { siteUrl } = require('./next-sitemap.config');
-
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 
     (process.env.NODE_ENV === "production" ? "https://quote.boxandgomovers.co.nz" : "http://localhost:3000");
     const siteName = "Box and Go Movers"
@@ -36,6 +34,8 @@ const nextConfig = {
         url: "https://data.webduel.co.nz",
         siteUrl: baseUrl,
         siteName: siteName,
+        EMAIL_ADDRESS: process.env.EMAIL_ADDRESS,
+        ADDRESS: process.env.ADDRESS,
     },
 
 }

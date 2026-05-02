@@ -24,14 +24,14 @@
  --light-surface: rgb(250 248 255);
  --light-on-surface: rgb(0 0 0);
  --light-surface-variant: rgb(225 225 239);
- --light-on-surface-variant: rgb(0 0 0);
+ --light-on-surface-variant: rgb(92, 92, 92);
  --light-outline: rgb(41 44 54);
  --light-outline-variant: rgb(205, 209, 220);
  --light-shadow: rgb(0 0 0);
  --light-scrim: rgb(0 0 0);
  --light-inverse-surface: rgb(47 48 53);
  --light-inverse-on-surface: rgb(255 255 255);
- --light-inverse-primary: rgb(180 197 255);
+ --light-inverse-primary: rgb(207, 218, 254);
  --light-primary-fixed: rgb(41 69 143);
  --light-on-primary-fixed: rgb(255 255 255);
  --light-primary-fixed-dim: rgb(10 45 120);
@@ -101,4 +101,6 @@
  --dark-surface-container: rgb(47 48 53);
  --dark-surface-container-high: rgb(58 59 65);
  --dark-surface-container-highest: rgb(70 70 76);
+
+ --text-gradient: linear-gradient(90deg, #307EB6 37.02%, #6919FF 100%);
 }
