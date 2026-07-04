@@ -7,7 +7,6 @@ import Link from "next/link";
 // import LocationCircleIcon from "../Icons/LocationCircleIcon";
 import Image from "next/image";
 import styles from "./Footer.module.scss";
-import Fab from '@mui/material/Fab';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -38,7 +37,6 @@ export default function ContactInfo({ contactInfo, className }) {
 
   const backendContactInfo = contactInfo?.info?.filter((info) => info?.url && info?.label) || [];
   const contactItems = backendContactInfo.length > 0 ? backendContactInfo : fallbackContactInfo;
-  const phoneItem = contactItems.find((info) => info.type === "phone" || info.url?.startsWith("tel:"));
 
   if (contactItems.length === 0) return null;
 
@@ -63,10 +61,6 @@ export default function ContactInfo({ contactInfo, className }) {
       {infoComponent}
     </div>
 
-
-      {phoneItem && (
-        <Fab className={styles.fabPhone} href={phoneItem.url} aria-label="Phone" > <LocalPhoneIcon color="white" sx={{fontSize: "2rem", color: "var(--light-on-primary)"}}/> </Fab>
-      )}
 
     </>
   );

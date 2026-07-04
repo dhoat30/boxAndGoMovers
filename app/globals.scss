@@ -914,6 +914,12 @@ padding: 8px 0;
     align-items: center;
     gap: 16px;
     justify-content: space-between;
+
+    // desktop links are hidden on mobile so the toolbar
+    // only holds the hamburger (left) and logo (right)
+    @media (max-width: 1199px) {
+      display: none;
+    }
   }
 
   .link {

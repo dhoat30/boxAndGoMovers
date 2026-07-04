@@ -90,7 +90,7 @@ export default function FooterCta({ title, description, ctaArray }) {
                       </Button>
                     </Link>
                     {phoneNumber && (
-                      <Link href={`tel:${phoneNumber}`} className={`${styles.phoneButton}`}>
+                      <a href={`tel:${phoneNumber}`} className={`${styles.phoneButton}`}>
                         <Button
                           size="large"
                           variant="outlined"
@@ -109,7 +109,7 @@ export default function FooterCta({ title, description, ctaArray }) {
                           <span>{phoneNumber}</span>
 
                         </Button>
-                      </Link>
+                      </a>
                     )}
                   </>
                 )}

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Script from "next/script";
 import LoadingIndicator from "@/Components/UI/Loader/LoadingIndicator";
 import TrackingPersistence from "@/Components/TrackingPersistence/TrackingPersistence";
+import CallFab from "@/Components/UI/CTA/CallFab";
 export default function ClientProvider({ children }) {
   // const [isLoading, setIsLoading] = useState(true);
 
@@ -18,6 +19,7 @@ export default function ClientProvider({ children }) {
       <LoadingIndicator />
       {/* {isLoading && <Loading />} */}
       {children}
+      <CallFab />
       <TrackingPersistence />
     </ThemeProvider>
   );

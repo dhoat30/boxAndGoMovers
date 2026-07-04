@@ -1,10 +1,5 @@
-import DesktopNavbar from "./DesktopNavbar/DesktopNavbar";
-import MobileNavbar from "./MobileNavbar/MobileNavbar";
+import Navbar from "./Navbar";
+
 export default function Header() {
-  return (
-    <>
-      <DesktopNavbar />
-      <MobileNavbar />
-    </>
-  );
+  return <Navbar />;
 }

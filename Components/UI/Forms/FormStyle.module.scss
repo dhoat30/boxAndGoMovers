@@ -44,6 +44,9 @@ padding:0 !important;
   }
 .inputContainer{ 
   padding: 16px 24px; 
+  @media(max-width: 600px){ 
+    padding: 16px 8px;
+  }
     .inputWrapper{ 
     .stepTitle{ 
         background: var( --light-inverse-primary); 

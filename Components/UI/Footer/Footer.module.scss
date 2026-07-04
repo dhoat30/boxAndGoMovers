@@ -143,16 +143,3 @@
     }
   }
 }
-
-.fabPhone {
-  position: fixed !important;
-  bottom: 80px !important;
-  right: 8px;
-  width: 60px !important;
-  height: 60px !important;
-  background: var(--primary-gradient, linear-gradient(90deg, #4861f0 0%, #b367ff 100%));
-
-  @media (min-width: 900px) {
-    display: none !important;
-  }
-}

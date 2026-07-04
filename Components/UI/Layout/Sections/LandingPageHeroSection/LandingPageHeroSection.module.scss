@@ -16,6 +16,7 @@ margin: 0 auto;
        }
 
         .reviewWrapper { 
+            align-items: stretch; 
             .trustSnippetWrapper{ 
                 background: var(--light-surface-container-lowest);
                 border: 1px solid var(--light-outline-variant);

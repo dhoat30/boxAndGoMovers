@@ -26,13 +26,13 @@ const STEPS = [
   },
   {
     number: 2,
-    label: "Contact",
+    label: "Details",
     fields: ["propertyType", "service"],
     title: "Tell us about the property.",
   },
   {
     number: 3,
-    label: "Extra Details",
+    label: "Contact",
     fields: ["firstname", "email", "phone", "message"],
     title: "Contact details and any special requirements.",
   },
@@ -517,8 +517,8 @@ export default function MultipartForm({
                 </Button>
               )}
             </div>
-              {currentStep === STEPS.length && (
-                <>
+              
+               
                          <Button
                 variant="text"
                 className="mt-8  align-center"
@@ -533,7 +533,7 @@ export default function MultipartForm({
                 Prefer to talk? {process.env.NEXT_PUBLIC_PHONE_NUMBER}
               </Button>
                 <Typography
-                variant="body1"
+                variant="body2"
                 component="div"
                 className="center-align mt-8"
                 color="secondary"
@@ -541,9 +541,18 @@ export default function MultipartForm({
               >
                 Honest advice • Free Quote • No obligation
               </Typography>
-                </>
+      <Typography
+                variant="body2"
+                component="div"
+                className="center-align mt-8"
+               
+               
+              >
+              🔒 Your details are safe & never shared
+              </Typography>
+            
            
-              ) }
+          
           
            
             
